@@ -41,6 +41,8 @@ setwd("~/Dropbox/text-as-data-JUST-CORY-AND-AMBER/modules/data/")
 
 ```
 
+\
+
 ### Stop and think about your measurement goals!
 
 Before you do anything, with any text, Step 1 is to think hard about your measurement goals, namely your research question and exactly what you want to measure. Your measurement goals should guide all other decisions. This is true for manual content analysis but also for text-as-data approaches of all kinds.
@@ -60,6 +62,13 @@ For example, if you're interested in the discussion of pets by young adults on s
 #### What unit of analysis should you use?
 
 An often overlooked but *crucial* question is what unit of analysis you should use. In many cases, the unit of analysis is the **document**. For instance, some researchers may want to measure how many times each newspaper article or social media post references a term like "liberal", "conservative", or (better yet) "giraffe". However, in some cases the unit of analysis might be smaller or larger than the document: the analyst may want to break apart a newspaper article into paragraphs, or combine all the tweets written by a single author in one day. In our example about discussion of pets, for example, should you use treat each social media post as a unit (i.e., treat it as a separate document)? Or would it be better to break up the posts into sentences, with the sentence as the unit of analysis? Or should you expand it out, pooling all the posts by month, and treating the month as your unit of analysis, with all posts on that month treated as one big document? There are no wrong answers here. Which unit of analysis you should use depends on---you guessed it---your research question/goal and your latent variable(s) of interest.
+
+\
+
+<center>![](/Users/cs86487/Dropbox/text-as-data-JUST-CORY-AND-AMBER/images/conservative giraffe.jpeg){width="70%"}</center>
+<center>Credit: Michelle Budge</center>
+
+\
 
 ### Look at your data
 
