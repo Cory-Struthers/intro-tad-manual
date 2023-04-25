@@ -1629,32 +1629,26 @@ display: none;
 
 <div id="TOC">
 <ul>
-<li><a href="#lab-objectives" id="toc-lab-objectives">Lab objectives</a>
-<ul>
-<li><a href="#stop-and-think-about-your-measurement-goals" id="toc-stop-and-think-about-your-measurement-goals">1. Stop and think
+<li><a href="#introduction" id="toc-introduction">Introduction</a></li>
+<li><a href="#stop-and-think-about-your-measurement-goals" id="toc-stop-and-think-about-your-measurement-goals">Stop and think
 about your measurement goals!</a></li>
-<li><a href="#look-at-your-data" id="toc-look-at-your-data">2. Look at
-your data</a></li>
-<li><a href="#build-and-test-a-codebook" id="toc-build-and-test-a-codebook">3. Build and test a codebook</a></li>
-<li><a href="#code-your-data-independent-from-another-coder" id="toc-code-your-data-independent-from-another-coder">4. Code your data
+<li><a href="#look-at-your-data" id="toc-look-at-your-data">Look at your
+data</a></li>
+<li><a href="#build-and-test-a-codebook" id="toc-build-and-test-a-codebook">Build and test a codebook</a></li>
+<li><a href="#code-your-data-independent-from-another-coder" id="toc-code-your-data-independent-from-another-coder">Code your data
 independent from another coder</a></li>
-<li><a href="#check-for-inter-coder-reliability" id="toc-check-for-inter-coder-reliability">5. Check for inter-coder
+<li><a href="#check-for-inter-coder-reliability" id="toc-check-for-inter-coder-reliability">Check for inter-coder
 reliability</a></li>
-<li><a href="#wash-rinse-and-repeat" id="toc-wash-rinse-and-repeat">6.
-Wash, rinse, and repeat</a></li>
-</ul></li>
+<li><a href="#wash-rinse-and-repeat" id="toc-wash-rinse-and-repeat">Wash, rinse, and repeat</a></li>
 </ul>
 </div>
 
-<div id="lab-objectives" class="section level2">
-<h2>Lab objectives</h2>
-<ul>
-<li>Get (re)familiar with R</li>
-<li>Stop and think about your measurement goals!</li>
-<li>Walk through the joys and challenges of manual content analysis</li>
-<li>Calculate inter-coder reliability</li>
-<li>Understand the value of human reading of text</li>
-</ul>
+<div id="introduction" class="section level3">
+<h3>Introduction</h3>
+<p>The goal of this module is to get (re)familiar with R, think about
+our measurement goals, walk through the joys and challenges of manual
+content analysis, and appreciate the necessity of humans reading of
+text.</p>
 <p>We will need the following packages. We also need to set our working
 directory to use relative paths when loading data. Time constraints
 prevent us from diving deeply into differences between absolute and
@@ -1672,10 +1666,10 @@ require(dplyr)
 
 # Set working directory
 setwd(&quot;~/Dropbox/text-as-data-JUST-CORY-AND-AMBER/modules/data/&quot;)
-#setwd(&quot;/Users/amberboydstun/Dropbox/text-as-data-JUST-CORY-AND-AMBER/modules/data&quot;)
 #getwd() # view working directory</code></pre>
+</div>
 <div id="stop-and-think-about-your-measurement-goals" class="section level3">
-<h3>1. Stop and think about your measurement goals!</h3>
+<h3>Stop and think about your measurement goals!</h3>
 <p>Before you do anything, with any text, Step 1 is to think hard about
 your measurement goals, namely your research question and exactly what
 you want to measure. Your measurement goals should guide all other
@@ -1739,26 +1733,30 @@ question/goal and your latent variable(s) of interest.</p>
 </div>
 </div>
 <div id="look-at-your-data" class="section level3">
-<h3>2. Look at your data</h3>
+<h3>Look at your data</h3>
 <p>Once you’ve made these important decisions, the next step for manual
 content analysis is to LOOK at your data, keeping your research goal and
 latent variable(s) of interest in mind. Let’s use a sample of Twitter
 posts about immigration as an example. For this exercise, let’s use the
 tweet as our unit of analysis.</p>
 <pre class="r"><code># Load data
-tweet_data = read.csv(&quot;~/Dropbox/text-as-data-JUST-CORY-AND-AMBER/modules/data/sample_immigration_tweets_2013-2017.csv&quot;)
-#tweet_data = read.csv(&quot;/Users/amberboydstun/Dropbox/text-as-data-JUST-CORY-AND-AMBER/modules/data/sample_immigration_tweets_2013-2017.csv&quot;)
-class(tweet_data)
-
-# Look at your data
-head(tweet_data)</code></pre>
+tweet_data = read.csv(&quot;sample_immigration_tweets_2013-2017.csv&quot;)
+class(tweet_data)</code></pre>
+<pre><code>## [1] &quot;data.frame&quot;</code></pre>
+<pre class="r"><code># Look at your data
+head(tweet_data, 10)</code></pre>
+<div data-pagedtable="false">
+<script data-pagedtable-source type="application/json">
+{"columns":[{"label":[""],"name":["_rn_"],"type":[""],"align":["left"]},{"label":["tweet_id"],"name":[1],"type":["dbl"],"align":["right"]},{"label":["year"],"name":[2],"type":["int"],"align":["right"]},{"label":["month"],"name":[3],"type":["int"],"align":["right"]},{"label":["day"],"name":[4],"type":["int"],"align":["right"]},{"label":["hour"],"name":[5],"type":["int"],"align":["right"]},{"label":["minute"],"name":[6],"type":["int"],"align":["right"]},{"label":["second"],"name":[7],"type":["int"],"align":["right"]},{"label":["is_retweet"],"name":[8],"type":["int"],"align":["right"]},{"label":["retweets"],"name":[9],"type":["int"],"align":["right"]},{"label":["user_url"],"name":[10],"type":["chr"],"align":["left"]},{"label":["follower_count"],"name":[11],"type":["int"],"align":["right"]},{"label":["verified"],"name":[12],"type":["lgl"],"align":["right"]},{"label":["text"],"name":[13],"type":["chr"],"align":["left"]},{"label":["Anti"],"name":[14],"type":["dbl"],"align":["right"]},{"label":["Neutral"],"name":[15],"type":["dbl"],"align":["right"]},{"label":["Pro"],"name":[16],"type":["dbl"],"align":["right"]},{"label":["Capacity.and.Resources"],"name":[17],"type":["dbl"],"align":["right"]},{"label":["Crime.and.Punishment"],"name":[18],"type":["dbl"],"align":["right"]},{"label":["Cultural.Identity"],"name":[19],"type":["dbl"],"align":["right"]},{"label":["Economic"],"name":[20],"type":["dbl"],"align":["right"]},{"label":["External.Regulation.and.Reputation"],"name":[21],"type":["dbl"],"align":["right"]},{"label":["Fairness.and.Equality"],"name":[22],"type":["dbl"],"align":["right"]},{"label":["Health.and.Safety"],"name":[23],"type":["dbl"],"align":["right"]},{"label":["Legality..Constitutionality..Jurisdiction"],"name":[24],"type":["dbl"],"align":["right"]},{"label":["Morality"],"name":[25],"type":["dbl"],"align":["right"]},{"label":["Other"],"name":[26],"type":["dbl"],"align":["right"]},{"label":["Policy.Prescription.and.Evaluation"],"name":[27],"type":["dbl"],"align":["right"]},{"label":["Political"],"name":[28],"type":["dbl"],"align":["right"]},{"label":["Public.Sentiment"],"name":[29],"type":["dbl"],"align":["right"]},{"label":["Quality.of.Life"],"name":[30],"type":["dbl"],"align":["right"]},{"label":["Security.and.Defense"],"name":[31],"type":["dbl"],"align":["right"]}],"data":[{"1":"9.20638e+17","2":"2017","3":"10","4":"18","5":"13","6":"11","7":"5","8":"0","9":"0","10":"http://steamcommunity.com/id/gayskeleton1992/","11":"385","12":"FALSE","13":"Obama once called me and he said I'm a dirty immigrant ): #truestory https://t.co/03m5hahHkW","14":"0.001030748","15":"0.998835927","16":"0.000133325","17":"0.000005620","18":"0.000014600","19":"0.000024500","20":"0.000009490","21":"0.000009440","22":"0.000115101","23":"0.000011400","24":"0.000041600","25":"0.000013700","26":"0.000026500","27":"0.000021500","28":"0.999683616","29":"0.000005740","30":"0.000009630","31":"0.000007600","_rn_":"1"},{"1":"9.01247e+17","2":"2017","3":"8","4":"26","5":"0","6":"56","7":"51","8":"0","9":"0","10":"http://unitedresistance.com/","11":"1642","12":"FALSE","13":"Trump Pardons Sheriff Joe Arpaio - Mr. Arpaio, who built a national reputation for his efforts to hunt and detain undocumented immigrant...","14":"0.999595635","15":"0.000266326","16":"0.000138039","17":"0.000024500","18":"0.998977054","19":"0.000050900","20":"0.000029000","21":"0.000027900","22":"0.000093800","23":"0.000035700","24":"0.000195348","25":"0.000321173","26":"0.000015600","27":"0.000031100","28":"0.000099500","29":"0.000037700","30":"0.000029300","31":"0.000031400","_rn_":"2"},{"1":"7.97872e+17","2":"2016","3":"11","4":"13","5":"18","6":"43","7":"8","8":"1","9":"0","10":"NA","11":"206","12":"FALSE","13":"RT @AFP: #BREAKING Trump vows to immediately deport up to three million immigrants: interview","14":"0.999681621","15":"0.000250103","16":"0.000068300","17":"0.000023600","18":"0.006385019","19":"0.000077300","20":"0.000048600","21":"0.000044700","22":"0.000188458","23":"0.000044500","24":"0.000134543","25":"0.000052700","26":"0.000033800","27":"0.000216373","28":"0.992617148","29":"0.000036400","30":"0.000043400","31":"0.000053400","_rn_":"3"},{"1":"8.25354e+17","2":"2017","3":"1","4":"28","5":"14","6":"45","7":"11","8":"1","9":"0","10":"NA","11":"58","12":"FALSE","13":"RT @PersianCeltic: It''s official America a country founded by immigrants, after stealing land from Native Americans, is banning 134 million people #MuslimBan","14":"0.000044100","15":"0.000086800","16":"0.999869059","17":"0.000049400","18":"0.000073900","19":"0.042556071","20":"0.000124714","21":"0.000111604","22":"0.955533214","23":"0.000084700","24":"0.000048100","25":"0.000230013","26":"0.000069700","27":"0.000263481","28":"0.000418053","29":"0.000042900","30":"0.000310655","31":"0.000083500","_rn_":"4"},{"1":"8.24631e+17","2":"2017","3":"1","4":"26","5":"14","6":"50","7":"42","8":"1","9":"0","10":"NA","11":"30","12":"FALSE","13":"RT @RobSchneider: My mother is an immigrant from the Philippines. My grandfather was a Jewish immigrant from Eastern Europe. Immigrants Make America Great!","14":"0.000029200","15":"0.000086300","16":"0.999884438","17":"0.000010200","18":"0.000009720","19":"0.999703702","20":"0.000011100","21":"0.000012100","22":"0.000053400","23":"0.000007070","24":"0.000015000","25":"0.000036400","26":"0.000012700","27":"0.000015400","28":"0.000051700","29":"0.000007520","30":"0.000038400","31":"0.000015500","_rn_":"5"},{"1":"8.28766e+17","2":"2017","3":"2","4":"7","5":"0","6":"43","7":"23","8":"1","9":"0","10":"https://www.youtube.com/channel/UCJNjv114NMZ-ja76ErSB-rw","11":"1723","12":"FALSE","13":"RT @AnnCoulter: If GOP is worth anything, they'd impeach wacko Judge Robart, who claims to run entire nation's immigration policy from his courtroom.","14":"0.233192650","15":"0.765425231","16":"0.001382118","17":"0.000017600","18":"0.000256318","19":"0.000030300","20":"0.000043400","21":"0.000027800","22":"0.000136101","23":"0.000031900","24":"0.002767632","25":"0.000073200","26":"0.000040700","27":"0.000040500","28":"0.996453785","29":"0.000028300","30":"0.000027300","31":"0.000025200","_rn_":"6"},{"1":"6.89074e+17","2":"2016","3":"1","4":"18","5":"13","6":"18","7":"37","8":"1","9":"0","10":"NA","11":"777","12":"FALSE","13":"RT @Ricky_Vaughn99: Cuckservative @PolitiBunny is back with a vengeance, she cries if her precious Muslims are banned from immigrating. https://t.co/Z9IS89HSjn","14":"0.000130729","15":"0.000122073","16":"0.999747197","17":"0.000332989","18":"0.000867545","19":"0.000256908","20":"0.000750915","21":"0.000382893","22":"0.010239722","23":"0.000675393","24":"0.000473543","25":"0.859898718","26":"0.000859576","27":"0.000542424","28":"0.110623906","29":"0.009057705","30":"0.000731262","31":"0.004306500","_rn_":"7"},{"1":"7.46718e+17","2":"2016","3":"6","4":"25","5":"14","6":"52","7":"42","8":"1","9":"0","10":"NA","11":"339","12":"FALSE","13":"RT @azizansari: Trump wants to ban Muslim immigrants like my parents. I wrote a piece for @NYTimes telling him to go fuck himself: https://t.co/MCDsQyz2jy","14":"0.000031900","15":"0.000078700","16":"0.999889348","17":"0.000517919","18":"0.000621271","19":"0.400666343","20":"0.000660510","21":"0.001264663","22":"0.009850651","23":"0.001173070","24":"0.000857019","25":"0.000771013","26":"0.001110043","27":"0.026649565","28":"0.545796403","29":"0.000431946","30":"0.008665551","31":"0.000964033","_rn_":"8"},{"1":"7.95021e+17","2":"2016","3":"11","4":"5","5":"21","6":"51","7":"19","8":"1","9":"0","10":"NA","11":"433","12":"FALSE","13":"RT @RealDonalDrumpf: Thank you, Melania, for standing with me at this difficult time! It would be sad if I had to call immigration on you https://t.co/zfKb35lb1m","14":"0.000021300","15":"0.000301082","16":"0.999677607","17":"0.000005610","18":"0.000012500","19":"0.000105458","20":"0.000009830","21":"0.000029600","22":"0.000121388","23":"0.000018300","24":"0.000036500","25":"0.000043500","26":"0.000022300","27":"0.000050900","28":"0.999488588","29":"0.000014700","30":"0.000027600","31":"0.000013100","_rn_":"9"},{"1":"4.35865e+17","2":"2014","3":"2","4":"18","5":"19","6":"52","7":"52","8":"0","9":"0","10":"NA","11":"1282","12":"FALSE","13":"giving immigrants directions wats worse","14":"0.000212785","15":"0.000187685","16":"0.999599530","17":"0.004436620","18":"0.000772798","19":"0.000185787","20":"0.000429561","21":"0.001465938","22":"0.000556681","23":"0.003484788","24":"0.010008500","25":"0.000597915","26":"0.926439361","27":"0.002430043","28":"0.000516585","29":"0.003089183","30":"0.045224474","31":"0.000361767","_rn_":"10"}],"options":{"columns":{"min":{},"max":[10]},"rows":{"min":[10],"max":[10]},"pages":{}}}
+  </script>
+</div>
 <p>Think about a key variable you’d like to measure, and scan through
 the tweets to get a sense for how easy it would be to categorize each
 tweet according to your variable. For a real project, we’d want to take
 a random sample of the text and read it at this stage.</p>
 </div>
 <div id="build-and-test-a-codebook" class="section level3">
-<h3>3. Build and test a codebook</h3>
+<h3>Build and test a codebook</h3>
 <p>With your variable in mind, you’ll then want to write down the rules
 that will allow you (and future researchers) to categorize each text
 according to that variable. For example, if we want to track social
@@ -1767,18 +1765,18 @@ whether or not someone’s post about a <em>friend’s</em> pet should
 count.</p>
 </div>
 <div id="code-your-data-independent-from-another-coder" class="section level3">
-<h3>4. Code your data independent from another coder</h3>
+<h3>Code your data independent from another coder</h3>
 <p>As soon as you</p>
 </div>
 <div id="check-for-inter-coder-reliability" class="section level3">
-<h3>5. Check for inter-coder reliability</h3>
+<h3>Check for inter-coder reliability</h3>
 <p>Use Deen Freelon’s extraordinary (and free!) online system to
 calculate inter-coder reliability: <a href="http://dfreelon.org/utils/recalfront/" class="uri">http://dfreelon.org/utils/recalfront/</a></p>
 <p>In general, a Cohen’s Kappa and Krippendorff’s Alpha scores of over
 0.7 allow us to be confident in the reliability of the coding.</p>
 </div>
 <div id="wash-rinse-and-repeat" class="section level3">
-<h3>6. Wash, rinse, and repeat</h3>
+<h3>Wash, rinse, and repeat</h3>
 <p>You’ll want to iterate through Steps 1-5 until you have a solid
 concept of your variable of interest, a strong codebook that can handle
 most new observations you code, and high levels of inter-coder
@@ -1787,32 +1785,69 @@ of any specific coding decisions you make. But careful! If you make a
 decision that is inconsistent with how you have coded things in the
 past, you’ll need to go back and find those observations and re-code
 them according to your new rule. Fun, right?</p>
+<p><br />
+</p>
+<hr />
 <p><strong>Question 1. Work with your partner or team to develop a
 variable of interest and a brief codebook. What was the process like?
 What were the easy parts, and what were the challenges?</strong></p>
-<p><strong>Question 2. Then subset the immigration twitter data to the
-same 20 observations, and each code those 20 tweets independently. What
-was the process like? How confident did you feel in your coding, and
-what did you observe from spending time with the text?</strong></p>
+<hr />
+<p><br />
+</p>
+<hr />
+<p><strong>Question 2. Using the code below, subset the immigration
+twitter data to the same 20 observations, and each code those 20 tweets
+independently. What was the process like? How confident did you feel in
+your coding, and what did you observe from spending time with the
+text?</strong></p>
+<hr />
+<p><br />
+</p>
 <pre class="r"><code># Subset to only 20 observations and only the text variable
-tweet_df = subset(tweet_data, select = c(text)) %&gt;%
-  slice(100:120)
-View(tweet_df)
+tweet_text_df = tweet_data  %&gt;%
+  select(text) %&gt;%
+  slice(100:119)
+head(tweet_text_df$text, 10)</code></pre>
+<pre><code>##  [1] &quot;RT @NumbersUSA: National Poll: 3-to-1 support for Trump legal immigration cuts https://t.co/5RvRvF9pso https://t.co/47yFIHvlvp&quot;                                                               
+##  [2] &quot;RT @williamlegate: What happened to your brain &amp;amp; morals during the campaign? You thought you&#39;d be fine &amp;amp; only immigrants &amp;amp; other minorities would suffer… https://t.co/2tLFf1nVAx&quot;
+##  [3] &quot;RT @viricarrizales: Trump likely to end DACA immigrant program https://t.co/k1LPxRjvdr via @nbcnews&quot;                                                                                          
+##  [4] &quot;Political poker in immigration debate http://t.co/hyrq1bk6&quot;                                                                                                                                   
+##  [5] &quot;RT @billoreilly: President Trump showed consistent thought in Arpaio pardon. Both believe federal immigration law was poorly enforced under President Obama.&quot;                                 
+##  [6] &quot;RT @ryanbeckwith: Superman protects undocumented immigrants from a shooter in latest comic. https://t.co/PXSob5fvXs https://t.co/yAquNUSGfB&quot;                                                  
+##  [7] &quot;Helping #immigrant children recover from trauma &amp;amp; handle uncertainties http://t.co/6wLJ5lEwCM #psychology #resilience&quot;                                                                    
+##  [8] &quot;RT @riverlinesss: #GrowingUpWithBrownSkin Being called nigger by European immigrants like they didn&#39;t just get here a week ago.&quot;                                                              
+##  [9] &quot;RT @thinkprogress: Trump adviser wants to implement a now-defunct program to register Muslim immigrants https://t.co/pnN3iHZOdq https://t.co/AZWCdy0Ame&quot;                                      
+## [10] &quot;RT @thaliajaimes: I hate talking about immigration because it makes me want to burst into a river of tears.&quot;</code></pre>
+<pre class="r"><code># Add two columns for your own codings, enter codings within quotation marks like the example
+valence = c(&quot;&quot;)
+other_variable = c(&quot;for example 1&quot;, &quot;for example 2&quot;, &quot;for example 3&quot;, &quot;repeat 20 times&quot;)
 
-# Add two columns for your own coding: one for valence, the other for a variable you find interesting
-tweet_data_coded = cbind(tweet_df, valence=&quot;&quot;, other_variable=&quot;&quot;)
-View(tweet_data_coded)
-
-# Output your data for manual coding (writing into your current working directory folder)
-write.csv(tweet_data_coded, &quot;~/Dropbox/text-as-data-JUST-CORY-AND-AMBER/modules/data/tweet_data_coded.csv&quot;, row.names=TRUE)</code></pre>
+tweet_data_coded = cbind(tweet_text_df, valence, other_variable)
+head(tweet_data_coded, 15)</code></pre>
+<div data-pagedtable="false">
+<script data-pagedtable-source type="application/json">
+{"columns":[{"label":[""],"name":["_rn_"],"type":[""],"align":["left"]},{"label":["text"],"name":[1],"type":["chr"],"align":["left"]},{"label":["valence"],"name":[2],"type":["chr"],"align":["left"]},{"label":["other_variable"],"name":[3],"type":["chr"],"align":["left"]}],"data":[{"1":"RT @NumbersUSA: National Poll: 3-to-1 support for Trump legal immigration cuts https://t.co/5RvRvF9pso https://t.co/47yFIHvlvp","2":"","3":"for example 1","_rn_":"1"},{"1":"RT @williamlegate: What happened to your brain &amp; morals during the campaign? You thought you'd be fine &amp; only immigrants &amp; other minorities would suffer… https://t.co/2tLFf1nVAx","2":"","3":"for example 2","_rn_":"2"},{"1":"RT @viricarrizales: Trump likely to end DACA immigrant program https://t.co/k1LPxRjvdr via @nbcnews","2":"","3":"for example 3","_rn_":"3"},{"1":"Political poker in immigration debate http://t.co/hyrq1bk6","2":"","3":"repeat 20 times","_rn_":"4"},{"1":"RT @billoreilly: President Trump showed consistent thought in Arpaio pardon. Both believe federal immigration law was poorly enforced under President Obama.","2":"","3":"for example 1","_rn_":"5"},{"1":"RT @ryanbeckwith: Superman protects undocumented immigrants from a shooter in latest comic. https://t.co/PXSob5fvXs https://t.co/yAquNUSGfB","2":"","3":"for example 2","_rn_":"6"},{"1":"Helping #immigrant children recover from trauma &amp; handle uncertainties http://t.co/6wLJ5lEwCM #psychology #resilience","2":"","3":"for example 3","_rn_":"7"},{"1":"RT @riverlinesss: #GrowingUpWithBrownSkin Being called nigger by European immigrants like they didn't just get here a week ago.","2":"","3":"repeat 20 times","_rn_":"8"},{"1":"RT @thinkprogress: Trump adviser wants to implement a now-defunct program to register Muslim immigrants https://t.co/pnN3iHZOdq https://t.co/AZWCdy0Ame","2":"","3":"for example 1","_rn_":"9"},{"1":"RT @thaliajaimes: I hate talking about immigration because it makes me want to burst into a river of tears.","2":"","3":"for example 2","_rn_":"10"},{"1":"RT @BenjySarlin: Rubio to Leahy: Let's slow down immigration reform. Leahy to Rubio: FULL STEAM AHEAD! http://t.co/C0w8AprkJZ","2":"","3":"for example 3","_rn_":"11"},{"1":"RT @SOMEXlCAN: La Raza is marching at Modesto for our immigrants of our community. https://t.co/iTBoNYFjdT","2":"","3":"repeat 20 times","_rn_":"12"},{"1":"New survery shows US spends more $ on immigration enforcement -$18 billion in 2012- than on other agencies combined http://t.co/IK56QaLq","2":"","3":"for example 1","_rn_":"13"},{"1":"RT @WalshFreedom: Btw, the vast majority of immigrants who came here legally OPPOSE illegals in America. Take your day &amp; shove it. #DayWithoutImmigrants","2":"","3":"for example 2","_rn_":"14"},{"1":"RT @junogsp5: @pnehlen Stop falling for the compassion argument when illegal immigration is about cheap labor corp greed &amp; #BadHombres #MakeAmericaSafeAgain #MAGA https://t.co/p7C4FeG6w1","2":"","3":"for example 3","_rn_":"15"}],"options":{"columns":{"min":{},"max":[10]},"rows":{"min":[10],"max":[10]},"pages":{}}}
+  </script>
+</div>
+<pre class="r"><code># Output your data for manual coding (writing into your current working directory folder)
+write.csv(tweet_data_coded, &quot;tweet_data_coded.csv&quot;, row.names=TRUE)</code></pre>
+<p><br />
+</p>
+<hr />
 <p><strong>Question 3. Calculate your inter-coder reliability (follow
 Professor Freelon’s instructions about how to format the .csv file!).
 What factors help explain how high or low it is? Which particular
 observations did you code differently, and how might you update the
 coding process to improve the inter-coder reliability?</strong></p>
+<hr />
+<p><br />
+</p>
+<hr />
 <p><strong>Question 4. Finally, discuss: what worked and what didn’t,
 and why?</strong></p>
-</div>
+<hr />
+<p><br />
+</p>
 </div>
 
 
