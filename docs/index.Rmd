@@ -78,7 +78,6 @@ Once you've made these important decisions, the next step for manual content ana
 
 # Load data
 tweet_data = read.csv("sample_immigration_tweets_2013-2017.csv")
-class(tweet_data)
 
 # Look at your text data
 head(tweet_data$text, 15)
