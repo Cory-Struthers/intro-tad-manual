@@ -80,8 +80,8 @@ Once you've made these important decisions, the next step for manual content ana
 tweet_data = read.csv("sample_immigration_tweets_2013-2017.csv")
 class(tweet_data)
 
-# Look at your data
-head(tweet_data, 10)
+# Look at your text data
+head(tweet_data$text, 15)
 
 ```
 
@@ -93,11 +93,11 @@ With your variable in mind, you'll then want to write down the rules that will a
 
 ### Code your data independent from another coder
 
-As soon as you
+As soon as you have your codebook ready, work independently from your teammate(s) to code your data.
 
 ### Check for inter-coder reliability
 
-Use Deen Freelon's extraordinary (and free!) online system to calculate inter-coder reliability:
+Use Deen Freelon's extraordinary (and free!) online system to calculate pairwise inter-coder reliability:
 http://dfreelon.org/utils/recalfront/
 
 In general, a Cohen's Kappa and Krippendorff's Alpha scores of over 0.7 allow us to be confident in the reliability of the coding.
@@ -111,19 +111,12 @@ You'll want to iterate through Steps 1-5 until you have a solid concept of your 
 
 ---
 
-**Question 1. Work with your partner or team to develop a variable of interest and a brief codebook. What was the process like? What were the easy parts, and what were the challenges?** 
+**Question 1 (BREAKOUT). Work with your partner or team to develop a variable of interest and a brief codebook. What was the process like? What were the easy parts, and what were the challenges?** 
 
 ---
 
-\
 
----
-
-**Question 2. Using the code below, subset the immigration twitter data to the same 20 observations, and each code those 20 tweets independently. What was the process like? How confident did you feel in your coding, and what did you observe from spending time with the text?**
-
----
-
-\
+**Question 2 (BREAKOUT). Using the code below, subset the immigration twitter data to the same 20 observations, and each code those 20 tweets independently. What was the process like? How confident did you feel in your coding, and what did you observe from spending time with the text?**
 
 ``` {r, message = FALSE}
 
@@ -131,37 +124,26 @@ You'll want to iterate through Steps 1-5 until you have a solid concept of your 
 tweet_text_df = tweet_data  %>%
   select(text) %>%
   slice(100:119)
-head(tweet_text_df$text, 10)
 
 # Add two columns for your own codings, enter codings within quotation marks like the example
 valence = c("")
-other_variable = c("for example 1", "for example 2", "for example 3", "repeat 20 times")
+other_variable = c("")
 
 tweet_data_coded = cbind(tweet_text_df, valence, other_variable)
-head(tweet_data_coded, 15)
 
 # Output your data for manual coding (writing into your current working directory folder)
 write.csv(tweet_data_coded, "tweet_data_coded.csv", row.names=TRUE)
 
 ```
 
-\
+---
+
+**Question 3 (BREAKOUT). Calculate your inter-coder reliability (follow Professor Freelon's instructions about how to format the .csv file!). What factors help explain how high or low it is? Which particular observations did you code differently, and how might you update the coding process to improve the inter-coder reliability?**
 
 ---
 
-**Question 3. Calculate your inter-coder reliability (follow Professor Freelon's instructions about how to format the .csv file!). What factors help explain how high or low it is? Which particular observations did you code differently, and how might you update the coding process to improve the inter-coder reliability?**
-
----
-
-\
-
----
-
-**Question 4. Finally, discuss: what worked and what didn't, and why?**
-
----
+**Question 4 (BREAKOUT). Finally, discuss: what worked and what didn't, and why?**
 
 \
-
 
 
